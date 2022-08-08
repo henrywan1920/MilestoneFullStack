@@ -1,3 +1,6 @@
+"""
+REST APIs to access the server.
+"""
 import json
 import os
 
@@ -20,11 +23,10 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/index")
 def home():
-    default_image_path = os.path.join('static', 'result.png')
-    logger.info("Render template: index.html")
-    return render_template('index.html', image0=default_image_path)
+    message = "Hello world!"
+    logger.info(message)
+    return message
 
 
 if __name__ == '__main__':

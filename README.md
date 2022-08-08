@@ -21,6 +21,6 @@ python -m venv py3713
 pip install -r requirements.txt
 
 ### Run the application locally in Pycharm
-Run server.py
+Run client.py
 Select an image and click submit button
 You can see a sample result. Currently, it is a static image 'static/result.png'
