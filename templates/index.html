@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click on the "Choose File" button to upload a fruit image or video:</p>
+
+<div>
+  <h1>Fruits Detection</h1>
+  <h3>Click on the button to submit an image for detection</h3>
+  <form action="/action_page.php">
+    <input type="file" id="myFile" name="filename">
+    <button type="button" onclick="show()" id="btnID">Submit</button>
+  </form>
+
+  <!-- Add id to image -->
+  <img id="image" style="visibility:hidden" src="{{ image0 }}"/>
+</div>
+
+<script>
+  function show() {
+
+    /* Access image by id and change
+    the display property to block*/
+    setTimeout(function(){
+      console.log("Sending the image to the backend.");
+    },5000);
+    document.getElementById('image').style.visibility="visible";
+  }
+</script>
+
+</body>
+</html>

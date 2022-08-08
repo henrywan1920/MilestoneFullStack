@@ -109,6 +109,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.py3713
+py3713/
+py3713.bak/
 
 # Spyder project settings
 .spyderproject
@@ -127,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pycharm
+.DS_Store
+.idea/
