@@ -14,9 +14,12 @@ In order to solve this problem, the AI can process a faster and a more accurate 
 
 ## Installation
 Python: 3.7.13
+
 ### Create a virtual env
 python -m venv py3713
+
 pip install -r requirements.txt
+
 ### Run the application locally in Pycharm
 Run server.py
 Select an image and click submit button
