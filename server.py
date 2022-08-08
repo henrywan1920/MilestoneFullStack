@@ -22,7 +22,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/index")
 def home():
-    default_image_path = os.path.join('static', 'image0.png')
+    default_image_path = os.path.join('static', 'result.png')
     logger.info("Render template: index.html")
     return render_template('index.html', image0=default_image_path)
 
