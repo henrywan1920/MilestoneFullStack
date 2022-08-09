@@ -2,18 +2,23 @@
 <html>
 <body>
 
-<p>Click on the "Choose File" button to upload a fruit image or video:</p>
+<p>Click on the "Choose File" button to upload a car damage image or video:</p>
 
 <div>
-  <h1>Fruits Detection</h1>
-  <h3>Click on the button to submit an image for detection</h3>
-  <form action="/action_page.php">
-    <input type="file" id="myFile" name="filename">
-    <button type="button" onclick="show()" id="btnID">Submit</button>
+  <h1>Car Damage Detection</h1>
+<!--  <form action="/action_page.php">-->
+<!--    <input type="file" id="myFile" name="filename">-->
+<!--    <button type="button" onclick="show()" id="btnID">Submit</button>-->
+<!--  </form>-->
+
+  <form class="p-3 text-center" action='/detection' method="post" enctype="multipart/form-data" target="marked_image">
+    <input class="form-control" type="file" name="imagefile">
+    <input class="btn btn-primary mt-3" type="submit" value="ShowDamage" onclick="parent.open('static/result.png')">
   </form>
+  <!--  <img name="marked_image" onsubmit="show()" style="visibility:hidden" src="{{ result }}"/>-->
 
   <!-- Add id to image -->
-  <img id="image" style="visibility:hidden" src="{{ image0 }}"/>
+<!--  <img id="marked_image" style="visibility:hidden" src="{{ result }}"/>-->
 </div>
 
 <script>
@@ -24,7 +29,7 @@
     setTimeout(function(){
       console.log("Sending the image to the backend.");
     },5000);
-    document.getElementById('image').style.visibility="visible";
+    document.getElementById('marked_image').style.visibility="visible";
   }
 </script>
 

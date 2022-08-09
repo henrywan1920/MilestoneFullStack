@@ -9,9 +9,11 @@ COPY ./static ./static
 
 COPY ./templates ./templates
 
+COPY ./resources ./resources
+
 COPY requirements.txt .
 
-COPY server.py .
+COPY app.py .
 
 COPY config.py .
 

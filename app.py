@@ -4,7 +4,7 @@ REST APIs to access the server.
 import json
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from config import BACKEND_URL, LOGGING_LEVEL
 
@@ -23,10 +23,19 @@ app = Flask(__name__)
 
 
 @app.route("/")
+@app.route("/index")
 def home():
-    message = "Hello world!"
-    logger.info(message)
-    return message
+    logger.info("Render template: index.html")
+    return render_template('index.html')
+
+@app.route("/detection", methods=['POST'])
+def detect():
+    image = request.files['imagefile']
+    image_path = './resources/' + image.filename
+    image.save(image_path)
+
+    result_image_path = os.path.join('static', 'result.png')
+    return render_template('index.html', result=result_image_path)
 
 
 if __name__ == '__main__':

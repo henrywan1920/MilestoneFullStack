@@ -21,8 +21,16 @@ python -m venv py3713
 pip install -r requirements.txt
 
 ### Run the application locally in Pycharm
-Run client.py
+Run app.py
 
 Select an image and click submit button
 
 You can see a sample result. Currently, it is a static image 'static/result.png'
+
+### Run the application on Docker
+* docker images //Show all the images locally
+* docker ps -all // Show all the containers locally
+* docker rm <container_id> // Remove a container
+* docker rmi <image_id> // Remove a docker image
+* docker build -t milestone . // Build an image named 'milestone'
+* docker run -dp 8000:5000 --name main milestone // Run a docker container named main with image 'milestone'
