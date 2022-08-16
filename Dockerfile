@@ -11,12 +11,17 @@ COPY ./templates ./templates
 
 COPY ./resources ./resources
 
+COPY ./yolov5 ./yolov5
+
 COPY requirements.txt .
 
 COPY app.py .
 
 COPY config.py .
 
+COPY prediction.py .
+
+RUN pip install -U pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
