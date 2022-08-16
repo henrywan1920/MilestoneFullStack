@@ -1,5 +1,5 @@
 #Dockerfile, Image,  Container
-FROM python:3.7.13
+From ultralytics/yolov5:latest
 
 WORKDIR /usr/src/app
 
@@ -11,7 +11,7 @@ COPY ./templates ./templates
 
 COPY ./resources ./resources
 
-COPY ./yolov5 ./yolov5
+COPY ./models ./models
 
 COPY requirements.txt .
 

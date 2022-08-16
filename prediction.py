@@ -20,7 +20,7 @@ Stage_3_model = load_model(damage_severity_model_path)
 def report(img_path):
     report_pred = []
 
-    img = load_img('/content/' + img_path, target_size=(256, 256))
+    img = load_img(img_path, target_size=(256, 256))
     # Converting into array
     img_arr = img_to_array(img)
     img_arr = img_arr.reshape((1,) + img_arr.shape)

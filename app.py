@@ -65,7 +65,7 @@ def detect():
          latest_uploaded_image])
 
     # Get the name of the latest output image
-    output_list_with_boxes = glob.glob('yolov5/runs/detect/exp*/' + latest_uploaded_image_name)
+    output_list_with_boxes = glob.glob('runs/detect/exp*/' + latest_uploaded_image_name)
     latest_output_image = max(output_list_with_boxes, key=os.path.getctime)
     logger.info("The latest marked image is " + latest_output_image)
 
