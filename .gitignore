@@ -131,6 +131,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Models
+models/
+
 # Pycharm
 .DS_Store
 .idea/
