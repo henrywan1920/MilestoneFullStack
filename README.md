@@ -12,7 +12,16 @@ As traveling may not be convenient for all clients, just getting information fro
 In order to solve this problem, the AI can process a faster and a more accurate claim.
 
 
-## Installation
+## Run the application on docker
+* The docker image yolov5 doesn't work on apple M1 arm64 laptop.
+1) Download 4 models
+2) docker build -t app .
+3) docker images // Verify the new image
+4) docker run -dp 8000:5000 --name main app
+5) docker ps -all // Verify the new container
+6) Access localhost:8000 to upload your car damage picture.
+
+## Local Installation
 Python: 3.7.13
 
 ### Create a virtual env
@@ -27,7 +36,7 @@ Select an image and click submit button
 
 You can see a sample result. Currently, it is a static image 'static/result.png'
 
-### Run the application on Docker
+## Run the application on Docker
 * docker images //Show all the images locally
 * docker ps -all // Show all the containers locally
 * docker rm <container_id> // Remove a container
