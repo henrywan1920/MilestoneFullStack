@@ -41,7 +41,9 @@ def get_response_image(image_path):
 @app.route("/index")
 def home():
     logger.info("Render template: index.html")
-    return render_template('index.html')
+    result_image_path = 'static/ready.png'
+    damage_description = 'Ready Go'
+    return render_template('index.html', result=result_image_path, description=damage_description)
 
 
 @app.route("/detection", methods=['POST'])
@@ -60,9 +62,10 @@ def detect():
     preds = report(latest_uploaded_image)
 
     # Prediction
-    subprocess.run(
-        ["python", "detect.py", "--weights", "models/car_damage_yolov5.pt", "--img", "416", "--conf", "0.2", "--source",
-         latest_uploaded_image])
+    # subprocess.run(
+    #     ["python", "detect.py", "--weights", "models/car_damage_yolov5.pt", "--img", "416", "--conf", "0.2", "--source",
+    #      latest_uploaded_image])
+    os.system("python detect.py --weights models/car_damage_yolov5.pt --img 416 --conf 0.2 --source " + latest_uploaded_image)
 
     # Get the name of the latest output image
     output_list_with_boxes = glob.glob('runs/detect/exp*/' + latest_uploaded_image_name)
@@ -72,12 +75,13 @@ def detect():
     # Generate a brief description to the damage
     if preds[0] == 'Damaged':
         encoded_image = get_response_image(latest_output_image)
-        json_object = {"msg": "The vehicle is damaged on the " + preds[1] + " suffering " + preds[2] + " damages. Below is the type of damage detected.",
+        json_object = {"msg": "The vehicle is suffering " + preds[2] + " damages. Below is the type of damage detected.",
                       "encodedImg": '<img src="data:image/png;base64, ' + encoded_image + ' alt="Red dot" style="width:400px;height:400px;" />'}
         logger.info(json.dumps(json_object))
     else:
         json_object = {"msg": "Are you sure the vehicle is damaged?. Please check once."}
         logger.info(json.dumps(json_object))
+    damage_description = json_object['msg']
 
     # Convert the latest output marked image to png and replace static/result.png
     result = Image.open(latest_output_image)
@@ -85,8 +89,8 @@ def detect():
     logger.info('Saved result.png to static')
 
     # Show the marked image
-    result_image_path = os.path.join('static', 'result.png')
-    return render_template('index.html', result=result_image_path)
+    result_image_path = 'static/result.png'
+    return render_template('index.html', result=result_image_path, description=damage_description)
 
 
 if __name__ == '__main__':

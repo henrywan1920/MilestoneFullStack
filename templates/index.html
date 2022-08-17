@@ -13,10 +13,11 @@
 
   <form class="p-3 text-center" action='/detection' method="post" enctype="multipart/form-data" target="marked_image">
     <input class="form-control" type="file" name="imagefile">
-    <input class="btn btn-primary mt-3" type="submit" value="ShowDamage" onclick="parent.open('static/result.png')">
+    <input class="btn btn-primary mt-3" type="submit" value="ShowDamage">
   </form>
   <!--  <img name="marked_image" onsubmit="show()" style="visibility:hidden" src="{{ result }}"/>-->
-
+  <h1>{{ description }}</h1>
+  <img src="{{ result }}"/>
   <!-- Add id to image -->
 <!--  <img id="marked_image" style="visibility:hidden" src="{{ result }}"/>-->
 </div>
