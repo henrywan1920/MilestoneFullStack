@@ -14,7 +14,7 @@ In order to solve this problem, the AI can process a faster and a more accurate 
 
 ## Run the application on docker
 * The docker image yolov5 doesn't work on apple M1 arm64 laptop.
-1) Download 4 models from [Model1_Damage_or_not](https://drive.google.com/file/d/1iKPMKf4eJMhx6b4sKxtQ13uoakAsJZAd/view?usp=sharing), [Model2_Severity](https://drive.google.com/file/d/1eryXt8SGz9zTerZBTinBFZ9_LnUiNmpE/view?usp=sharing), [Model3_Locations](https://drive.google.com/file/d/1KxYQMYQYmQ5Cmb4grM-LqzVz42DrUF7j/view?usp=sharing)
+1) Download 4 models from [Model1_Damage_or_not](https://drive.google.com/file/d/1iKPMKf4eJMhx6b4sKxtQ13uoakAsJZAd/view?usp=sharing), [Model2_Severity](https://drive.google.com/file/d/1eryXt8SGz9zTerZBTinBFZ9_LnUiNmpE/view?usp=sharing), [Model3_Locations](https://drive.google.com/file/d/1KxYQMYQYmQ5Cmb4grM-LqzVz42DrUF7j/view?usp=sharing), [YOLOv5](https://drive.google.com/file/d/1fTkUxzRcOpmucb8FfRmYdUj2ljL9m0BF/view?usp=sharing)
 2) docker build -t app .
 3) docker images // Verify the new image
 4) docker run -dp 8000:5000 --name main app
